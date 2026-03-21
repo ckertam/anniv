@@ -1,0 +1,331 @@
+{
+  "couple": {
+    "name1": "Sen",
+    "name2": "O",
+    "startDate": "2025-04-20",
+    "spotifyPlaylist": "https://open.spotify.com/embed/playlist/PLAYLIST_ID_BURAYA"
+  },
+  "envelope": {
+    "label": "Dünyanın en harika kadınına",
+    "seal": "🤍"
+  },
+  "months": [
+    {
+      "id": 1,
+      "title": "Tanıştık",
+      "subtitle": "Nisan 2025",
+      "type": "story",
+      "emoji": "💫",
+      "color": "#f5e6ea",
+      "story": {
+        "scenes": [
+          {
+            "text": "Buraya tanışma hikayenizin ilk sahnesini yazın...",
+            "image": null,
+            "emoji": "✨"
+          },
+          {
+            "text": "İkinci sahne...",
+            "image": null,
+            "emoji": "💕"
+          },
+          {
+            "text": "Ve böylece her şey başladı...",
+            "image": null,
+            "emoji": "🌟"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "title": "İlk Ayımız",
+      "subtitle": "Mayıs 2025",
+      "type": "quiz",
+      "emoji": "🧠",
+      "color": "#e6eaf5",
+      "quiz": {
+        "questions": [
+          {
+            "question": "İlk buluşmamızda ne yedik?",
+            "options": ["Pizza", "Sushi", "Burger", "Döner"],
+            "correct": 0,
+            "funFact": "Ve sen ketçap istemedin 😄"
+          },
+          {
+            "question": "İlk birlikte izlediğimiz film?",
+            "options": ["Film A", "Film B", "Film C", "Film D"],
+            "correct": 1,
+            "funFact": "Yarısında uyumuştun 😴"
+          },
+          {
+            "question": "Benim en sevdiğim yemek?",
+            "options": ["Yemek A", "Yemek B", "Yemek C", "Yemek D"],
+            "correct": 2,
+            "funFact": "Bunu bilmen lazımdı! 😤"
+          },
+          {
+            "question": "Hangi şarkıyı ilk birlikte dinledik?",
+            "options": ["Şarkı A", "Şarkı B", "Şarkı C", "Şarkı D"],
+            "correct": 0,
+            "funFact": "O günden beri 'bizim şarkımız' 🎵"
+          },
+          {
+            "question": "İlk kavgamızın sebebi?",
+            "options": ["Geç kalmak", "Telefona bakmak", "Film seçimi", "Yemek seçimi"],
+            "correct": 3,
+            "funFact": "Ne komik bir kavgaydı 😂"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "title": "Anılarımız",
+      "subtitle": "Haziran 2025",
+      "type": "timeline",
+      "emoji": "📸",
+      "color": "#eaf5e6",
+      "timeline": {
+        "photos": [
+          { "file": "month-03/foto1.jpeg", "caption": "Bu anı unutulmaz 💕", "date": "Haziran 2025" },
+          { "file": "month-03/foto2.jpeg", "caption": "Gülüşün her şeye bedel", "date": "Haziran 2025" },
+          { "file": "month-03/foto3.jpeg", "caption": "En güzel halimiz", "date": "Haziran 2025" }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "title": "Mektuplar",
+      "subtitle": "Temmuz 2025",
+      "type": "letters",
+      "emoji": "💌",
+      "color": "#f5f0e6",
+      "letters": {
+        "items": [
+          {
+            "title": "Sana ilk mektubum",
+            "body": "Buraya mektup içeriğini yazın...",
+            "date": "Temmuz 2025"
+          },
+          {
+            "title": "O gün aklıma geldi",
+            "body": "İkinci mektup içeriği...",
+            "date": "Temmuz 2025"
+          }
+        ],
+        "video": null
+      }
+    },
+    {
+      "id": 5,
+      "title": "Şarkılarımız",
+      "subtitle": "Ağustos 2025",
+      "type": "music",
+      "emoji": "🎵",
+      "color": "#e6f0f5",
+      "music": {
+        "tracks": [
+          {
+            "title": "Bizim Şarkımız",
+            "artist": "Sanatçı Adı",
+            "spotifyId": "TRACK_ID_1",
+            "memory": "Bu şarkıyı ilk duyduğumuzda..."
+          },
+          {
+            "title": "Sana Hatırlatan",
+            "artist": "Sanatçı Adı",
+            "spotifyId": "TRACK_ID_2",
+            "memory": "Her duyduğumda seni düşünürüm..."
+          },
+          {
+            "title": "Yolculuk Şarkısı",
+            "artist": "Sanatçı Adı",
+            "spotifyId": "TRACK_ID_3",
+            "memory": "O yolculukta sürekli dinlemiştik..."
+          }
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "title": "Macera",
+      "subtitle": "Eylül 2025",
+      "type": "adventure",
+      "emoji": "🗺️",
+      "color": "#f5e6f0",
+      "adventure": {
+        "intro": "Bir sabah uyandın ve...",
+        "scenes": [
+          {
+            "id": "start",
+            "text": "Bugün güzel bir gün olacak gibi hissediyorsun. Ne yapmak istersin?",
+            "choices": [
+              { "text": "Kahvaltıya çağır", "next": "breakfast" },
+              { "text": "Sürpriz planla", "next": "surprise" }
+            ]
+          },
+          {
+            "id": "breakfast",
+            "text": "Kahvaltıda harika vakit geçirdiniz! Sonra ne yapmak istersin?",
+            "choices": [
+              { "text": "Sahilde yürüyüş", "next": "beach" },
+              { "text": "Film izle", "next": "movie" }
+            ]
+          },
+          {
+            "id": "surprise",
+            "text": "Sürpriz çok güzel oldu! Gözleri doldu...",
+            "choices": [
+              { "text": "Sarıl", "next": "happy_end" },
+              { "text": "Devamı var de", "next": "beach" }
+            ]
+          },
+          {
+            "id": "beach",
+            "text": "Sahilde gün batımını izlediniz, ne güzel bir andı...",
+            "choices": [
+              { "text": "Fotoğraf çek", "next": "happy_end" }
+            ]
+          },
+          {
+            "id": "movie",
+            "text": "Film seçerken yine tartıştınız ama sonunda güzel bir film buldunuz 😄",
+            "choices": [
+              { "text": "Güzel bir akşam oldu", "next": "happy_end" }
+            ]
+          },
+          {
+            "id": "happy_end",
+            "text": "Sonunda beraber olduktan sonra her yol güzel... 💕",
+            "choices": []
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "title": "Hafıza Oyunu",
+      "subtitle": "Ekim 2025",
+      "type": "memory",
+      "emoji": "🃏",
+      "color": "#e6f5f0",
+      "memory": {
+        "pairs": [
+          { "id": "pair1", "image": "month-07/foto1.jpeg", "label": "İlk buluşma" },
+          { "id": "pair2", "image": "month-07/foto2.jpeg", "label": "İlk öpücük" },
+          { "id": "pair3", "image": "month-07/foto3.jpeg", "label": "İlk yolculuk" },
+          { "id": "pair4", "image": "month-07/foto4.jpeg", "label": "En komik an" },
+          { "id": "pair5", "image": "month-07/foto5.jpeg", "label": "En romantik an" },
+          { "id": "pair6", "image": "month-07/foto6.jpeg", "label": "Favori mekan" }
+        ],
+        "winMessage": "Her günümüz bir öncekinden daha güzel olsun! Seni çok seviyorum 💕"
+      }
+    },
+    {
+      "id": 8,
+      "title": "Dilek Ağacı",
+      "subtitle": "Kasım 2025",
+      "type": "wishtree",
+      "emoji": "🌳",
+      "color": "#f0f5e6",
+      "wishTree": {
+        "wishes": [
+          "Seninle dünyayı gezmek",
+          "Birlikte yaşlanmak",
+          "Her sabah yanında uyanmak",
+          "Beraber yeni yerler keşfetmek",
+          "Seni her gün daha çok sevmek",
+          "Birlikte bir ev kurmak"
+        ],
+        "message": "Her dileğimde sen varsın..."
+      }
+    },
+    {
+      "id": 9,
+      "title": "Anı Odası",
+      "subtitle": "Aralık 2025",
+      "type": "room3d",
+      "emoji": "🏠",
+      "color": "#e6e6f5",
+      "room3d": {
+        "objects": [
+          { "type": "photo_frame", "position": [0, 1.5, -2.9], "image": "month-10/foto1.jpeg", "label": "En güzel anımız" },
+          { "type": "photo_frame", "position": [-2.5, 1.5, 0], "image": "month-10/foto2.jpeg", "label": "Gülüşün" },
+          { "type": "photo_frame", "position": [2.5, 1.5, 0], "image": "month-10/foto3.jpeg", "label": "Beraber" },
+          { "type": "book", "position": [0.5, 0.5, 1], "label": "Hikayemiz" },
+          { "type": "vinyl", "position": [-1, 0.5, 1.5], "label": "Şarkımız" }
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "title": "Leo'nun Dünyası",
+      "subtitle": "Ocak 2026",
+      "type": "leo",
+      "emoji": "🐾",
+      "color": "#f5f5e6",
+      "leo": {
+        "name": "Leo",
+        "adoptionDate": "2026-02-01",
+        "story": "Leo ailemize katıldığı gün...",
+        "photos": [
+          { "file": "month-10/leo1.jpeg", "caption": "Hoş geldin Leo! 🐾" },
+          { "file": "month-10/leo2.jpeg", "caption": "İlk gün evde" },
+          { "file": "month-10/leo3.jpeg", "caption": "Uyurken ne tatlı 😍" }
+        ],
+        "pawPrints": 12
+      }
+    },
+    {
+      "id": 11,
+      "title": "Dijital Bahçe",
+      "subtitle": "Şubat 2026",
+      "type": "garden",
+      "emoji": "🌸",
+      "color": "#f5e6ea",
+      "garden": {
+        "flowers": ["🌹", "🌷", "🌻", "🌺", "💐", "🪷"],
+        "message": "Her çiçek sana olan sevgimin bir parçası...",
+        "petals": true
+      }
+    },
+    {
+      "id": 12,
+      "title": "Son Bulmaca",
+      "subtitle": "Mart 2026",
+      "type": "escape",
+      "emoji": "🔐",
+      "color": "#f0e6f5",
+      "escape": {
+        "puzzles": [
+          {
+            "type": "date",
+            "question": "İlk buluşmamızın tarihi? (GG.AA.YYYY)",
+            "answer": "20.04.2025",
+            "hint": "Nisan ayıydı, bir salı günü..."
+          },
+          {
+            "type": "word",
+            "question": "Sana ilk söylediğim güzel söz?",
+            "answer": "PLACEHOLDER",
+            "hint": "O gece balkonda..."
+          },
+          {
+            "type": "number",
+            "question": "Leo'yu sahiplendiğimiz gün kaçıncı ayımızdı?",
+            "answer": "8",
+            "hint": "Kış başlıyordu..."
+          }
+        ],
+        "finalMessage": "Tebrikler! Tüm bulmacaları çözdün! 🎉"
+      }
+    }
+  ],
+  "finale": {
+    "title": "Seninle 365 Gün",
+    "message": "Seninle geçirdiğim her an, her gün, her ay — hayatımın en güzel hediyesi. Seni çok seviyorum. 🤍",
+    "video": null,
+    "confetti": true
+  }
+}

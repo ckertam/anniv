@@ -1,0 +1,241 @@
+.finale {
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(1.25rem, env(safe-area-inset-top)) 1.25rem max(1.5rem, env(safe-area-inset-bottom));
+  background: radial-gradient(ellipse 120% 80% at 50% 20%, #5c0018 0%, #2a0814 42%, #120408 100%);
+  color: var(--cream);
+}
+
+.finale-confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.finale-confetti__piece {
+  position: absolute;
+  top: -16px;
+  width: 10px;
+  height: 16px;
+  background: var(--c, var(--gold));
+  opacity: 0.95;
+  border-radius: 2px;
+  animation-name: finale-confetti-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes finale-confetti-fall {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) translateX(var(--drift, 0)) rotate(var(--rot, 360deg));
+    opacity: 0.85;
+  }
+}
+
+.finale-hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.finale-heart {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  font-size: 1.25rem;
+  opacity: 0;
+  animation: finale-heart-burst 2.8s var(--ease-out-expo) infinite;
+  animation-delay: var(--d, 0s);
+}
+
+.finale-heart::before {
+  content: '🤍';
+  filter: drop-shadow(0 0 12px rgba(201, 169, 110, 0.6));
+}
+
+.finale-heart:nth-child(odd)::before {
+  content: '💕';
+}
+
+.finale-heart:nth-child(1) {
+  --x: -120px;
+  --y: -90px;
+}
+.finale-heart:nth-child(2) {
+  --x: 100px;
+  --y: -100px;
+}
+.finale-heart:nth-child(3) {
+  --x: -80px;
+  --y: 40px;
+}
+.finale-heart:nth-child(4) {
+  --x: 110px;
+  --y: 30px;
+}
+.finale-heart:nth-child(5) {
+  --x: 0px;
+  --y: -120px;
+}
+.finale-heart:nth-child(6) {
+  --x: -140px;
+  --y: -20px;
+}
+.finale-heart:nth-child(7) {
+  --x: 130px;
+  --y: -40px;
+}
+.finale-heart:nth-child(8) {
+  --x: -40px;
+  --y: 90px;
+}
+.finale-heart:nth-child(9) {
+  --x: 50px;
+  --y: 100px;
+}
+.finale-heart:nth-child(10) {
+  --x: -100px;
+  --y: 70px;
+}
+.finale-heart:nth-child(11) {
+  --x: 90px;
+  --y: 80px;
+}
+.finale-heart:nth-child(12) {
+  --x: 20px;
+  --y: -70px;
+}
+.finale-heart:nth-child(13) {
+  --x: -60px;
+  --y: -110px;
+}
+.finale-heart:nth-child(14) {
+  --x: 70px;
+  --y: -60px;
+}
+
+@keyframes finale-heart-burst {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(-50% + var(--x, 0)), calc(-50% + var(--y, 0))) scale(1.1);
+    opacity: 0;
+  }
+}
+
+.finale-inner {
+  position: relative;
+  z-index: 3;
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+}
+
+.finale-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 7vw, 3rem);
+  color: var(--white);
+  margin: 0 0 1.25rem;
+  text-shadow: 0 4px 32px rgba(201, 169, 110, 0.35);
+  line-height: 1.15;
+}
+
+.finale-typewriter {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 3.8vw, 1.12rem);
+  line-height: 1.75;
+  color: rgba(250, 247, 245, 0.92);
+  margin: 0 0 1.75rem;
+  min-height: 4.5em;
+  text-align: center;
+}
+
+.finale-caret {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--gold);
+  animation: finale-blink 0.85s step-end infinite;
+}
+
+@keyframes finale-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.finale-video {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(201, 169, 110, 0.35);
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.finale-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.finale-video-fallback {
+  margin: 0 0 1.5rem;
+  font-family: var(--font-body);
+}
+
+.finale-video-fallback a {
+  color: var(--gold);
+}
+
+.finale-love {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  color: var(--white);
+  margin: 0 0 1.5rem;
+  text-shadow: 0 2px 20px rgba(128, 0, 32, 0.4);
+}
+
+.finale-map-btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.85rem 2rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--gold) 0%, #d4bc88 100%);
+  color: var(--bordo-deep);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s var(--ease-out-expo);
+}
+
+.finale-map-btn:active {
+  transform: scale(0.97);
+}

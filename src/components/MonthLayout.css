@@ -1,0 +1,49 @@
+.month-layout {
+  min-height: 100vh;
+  padding: 20px;
+  padding-bottom: 120px;
+  background: linear-gradient(180deg, var(--month-color, var(--cream)) 0%, var(--cream) 40%);
+}
+
+.back-button {
+  font-size: 0.9rem;
+  color: var(--bordo);
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.month-header {
+  text-align: center;
+  margin: 30px 0 40px;
+}
+
+.month-header-emoji {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.month-header-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--bordo);
+  margin-bottom: 4px;
+}
+
+.month-header-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.month-content {
+  max-width: 600px;
+  margin: 0 auto;
+}

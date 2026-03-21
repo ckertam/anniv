@@ -1,0 +1,116 @@
+.worldmap {
+  min-height: 100vh;
+  padding: 40px 20px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--bordo-soft) 100%);
+}
+
+.worldmap-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.worldmap-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--bordo);
+  margin-bottom: 8px;
+}
+
+.worldmap-subtitle {
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+.worldmap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.month-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 20px 8px;
+  border-radius: 16px;
+  background: var(--card-color, var(--white));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.month-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(128, 0, 32, 0.12);
+  border-color: var(--bordo-light);
+}
+
+.month-card:active {
+  transform: scale(0.97);
+}
+
+.month-emoji {
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
+
+.month-number {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.month-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.month-subtitle {
+  font-size: 0.7rem;
+  color: var(--text-light);
+}
+
+.finale-button {
+  margin-top: 40px;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--bordo) 0%, var(--bordo-deep) 100%);
+  border-radius: 50px;
+  box-shadow: 0 8px 30px rgba(128, 0, 32, 0.3);
+  transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.finale-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(128, 0, 32, 0.4);
+}
+
+@media (min-width: 600px) {
+  .worldmap-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 600px;
+  }
+  .worldmap-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .worldmap-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

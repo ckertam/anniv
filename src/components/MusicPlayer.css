@@ -1,0 +1,51 @@
+.music-player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 8000;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  background: var(--white);
+  padding: 8px 8px 0 8px;
+  animation: slideUp 0.8s var(--ease-out-expo) forwards;
+  max-width: 300px;
+  width: calc(100vw - 40px);
+}
+
+.music-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.music-label {
+  font-size: 0.8rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.music-toggle {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  padding: 4px;
+}
+
+.music-body {
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease-out-expo), opacity 0.3s ease;
+  opacity: 1;
+}
+
+.music-player.minimized .music-body {
+  max-height: 0;
+  opacity: 0;
+}
+
+.music-player.minimized {
+  padding-bottom: 8px;
+}
