@@ -19,6 +19,7 @@ type EscapeMonth = {
   emoji: string
   color: string
   escape: {
+    intro: string
     puzzles: Puzzle[]
     finalMessage: string
   }
@@ -68,7 +69,8 @@ export default function Month12Escape() {
   const [shake, setShake] = useState(false)
   const [done, setDone] = useState(false)
 
-  const puzzles = month?.escape.puzzles ?? []
+  const escape = month?.escape
+  const puzzles = escape?.puzzles ?? []
   const current = puzzles[index]
   const allSolved = done
 
@@ -79,7 +81,7 @@ export default function Month12Escape() {
 
   if (!month) return null
 
-  const { emoji, title, subtitle, color, escape } = month
+  const { emoji, title, subtitle, color } = month
 
   const submit = (e: FormEvent) => {
     e.preventDefault()
@@ -104,6 +106,10 @@ export default function Month12Escape() {
         <div className="escape-progress" role="progressbar" aria-valuenow={Math.round(progress)} aria-valuemin={0} aria-valuemax={100}>
           <div className="escape-progress__fill" style={{ width: `${progress}%` }} />
         </div>
+
+        {escape?.intro && !allSolved && index === 0 && !value && (
+          <p className="escape-intro">{escape.intro}</p>
+        )}
 
         {!allSolved && current && (
           <form className={`escape-card ${shake ? 'escape-card--shake' : ''}`} onSubmit={submit}>
@@ -142,7 +148,7 @@ export default function Month12Escape() {
             <div className="escape-win__glow" aria-hidden />
             <p className="escape-win__badge">✓ Tamamlandı</p>
             <h2 className="escape-win__title">Kutlar!</h2>
-            <p className="escape-win__msg">{escape.finalMessage}</p>
+            <p className="escape-win__msg">{escape?.finalMessage}</p>
             <button type="button" className="escape-btn escape-btn--gold" onClick={() => navigate('/finale')}>
               Büyük finale →
             </button>

@@ -96,55 +96,84 @@
     },
     {
       "id": 4,
-      "title": "Mektuplar",
+      "title": "Sence Ben, Sence Sen",
       "subtitle": "Temmuz 2025",
-      "type": "letters",
-      "emoji": "💌",
+      "type": "couples_quiz",
+      "emoji": "💑",
       "color": "#f5f0e6",
-      "letters": {
-        "items": [
+      "couplesQuiz": {
+        "questions": [
           {
-            "title": "Sana ilk mektubum",
-            "body": "Buraya mektup içeriğini yazın...",
-            "date": "Temmuz 2025"
+            "question": "Benim en sevdiğim yemek?",
+            "about": "ben",
+            "options": ["Yemek A", "Yemek B", "Yemek C", "Yemek D"],
+            "correct": 0,
+            "photo": "month-04/foto1.jpeg",
+            "reaction": "Bunu bilmen lazımdı! 😤"
           },
           {
-            "title": "O gün aklıma geldi",
-            "body": "İkinci mektup içeriği...",
-            "date": "Temmuz 2025"
+            "question": "Sabah kalktığımda ilk yaptığım şey?",
+            "about": "ben",
+            "options": ["Telefona bakmak", "Kahve yapmak", "Duş almak", "Seni öpmek"],
+            "correct": 0,
+            "photo": "month-04/foto2.jpeg",
+            "reaction": "İtiraf ediyorum 📱😅"
+          },
+          {
+            "question": "Benim en korktuğum şey?",
+            "about": "o",
+            "options": ["Böcekler", "Yükseklik", "Karanlık", "Yalnız kalmak"],
+            "correct": 0,
+            "photo": "month-04/foto3.jpeg",
+            "reaction": "Evet! Böcek görünce çığlık 😱"
+          },
+          {
+            "question": "En çok sinir olduğum alışkanlığın?",
+            "about": "o",
+            "options": ["Geç kalmak", "Telefona bakmak", "Dağınıklık", "Horlamak"],
+            "correct": 0,
+            "photo": "month-04/foto4.jpeg",
+            "reaction": "Ama seni yine de seviyorum 😤💕"
+          },
+          {
+            "question": "Birlikte en sevdiğimiz aktivite?",
+            "about": "biz",
+            "options": ["Dizi izlemek", "Yemek yapmak", "Gezmek", "Uyumak"],
+            "correct": 0,
+            "photo": "month-04/foto5.jpeg",
+            "reaction": "Klasik biz! 😄"
+          },
+          {
+            "question": "Benim gizli yeteneğim?",
+            "about": "ben",
+            "options": ["Yetenek A", "Yetenek B", "Yetenek C", "Yetenek D"],
+            "correct": 0,
+            "photo": "month-04/foto6.jpeg",
+            "reaction": "Kimse bilmez ama sen bilirsin 😏"
           }
         ],
-        "video": null
+        "endMessage": "Bizi biz yapan tüm bu küçük detaylar... 💕"
       }
     },
     {
       "id": 5,
-      "title": "Şarkılarımız",
+      "title": "Fotoğraf Kazı Kazan",
       "subtitle": "Ağustos 2025",
-      "type": "music",
-      "emoji": "🎵",
+      "type": "scratch",
+      "emoji": "🎰",
       "color": "#e6f0f5",
-      "music": {
-        "tracks": [
-          {
-            "title": "Bizim Şarkımız",
-            "artist": "Sanatçı Adı",
-            "spotifyId": "TRACK_ID_1",
-            "memory": "Bu şarkıyı ilk duyduğumuzda..."
-          },
-          {
-            "title": "Sana Hatırlatan",
-            "artist": "Sanatçı Adı",
-            "spotifyId": "TRACK_ID_2",
-            "memory": "Her duyduğumda seni düşünürüm..."
-          },
-          {
-            "title": "Yolculuk Şarkısı",
-            "artist": "Sanatçı Adı",
-            "spotifyId": "TRACK_ID_3",
-            "memory": "O yolculukta sürekli dinlemiştik..."
-          }
-        ]
+      "scratch": {
+        "cards": [
+          { "photo": "month-05/foto1.jpeg", "caption": "Bu anı hatırlıyor musun? 💕" },
+          { "photo": "month-05/foto2.jpeg", "caption": "O gün çok gülmüştük 😂" },
+          { "photo": "month-05/foto3.jpeg", "caption": "En güzel halimiz ✨" },
+          { "photo": "month-05/foto4.jpeg", "caption": "Bunu çekerken ne komikti 📸" },
+          { "photo": "month-05/foto5.jpeg", "caption": "Favorim bu 🤍" },
+          { "photo": "month-05/foto6.jpeg", "caption": "Gizli fotoğraf! 🫣" },
+          { "photo": "month-05/foto7.jpeg", "caption": "Bir de bu var 😍" },
+          { "photo": "month-05/foto8.jpeg", "caption": "Son sürpriz! 🎁" }
+        ],
+        "endMessage": "Tüm anılar açıldı! Her biri çok değerli 🤍"
       }
     },
     {
@@ -205,40 +234,130 @@
     },
     {
       "id": 7,
-      "title": "Hafıza Oyunu",
+      "title": "Bu Kim Dedi?",
       "subtitle": "Ekim 2025",
-      "type": "memory",
-      "emoji": "🃏",
+      "type": "whosaidit",
+      "emoji": "🗣️",
       "color": "#e6f5f0",
-      "memory": {
-        "pairs": [
-          { "id": "pair1", "image": "month-07/foto1.jpeg", "label": "İlk buluşma" },
-          { "id": "pair2", "image": "month-07/foto2.jpeg", "label": "İlk öpücük" },
-          { "id": "pair3", "image": "month-07/foto3.jpeg", "label": "İlk yolculuk" },
-          { "id": "pair4", "image": "month-07/foto4.jpeg", "label": "En komik an" },
-          { "id": "pair5", "image": "month-07/foto5.jpeg", "label": "En romantik an" },
-          { "id": "pair6", "image": "month-07/foto6.jpeg", "label": "Favori mekan" }
+      "whoSaidIt": {
+        "statements": [
+          {
+            "text": "Uyurken battaniyeyi çalan",
+            "answer": "name1",
+            "photo": "month-07/foto1.jpeg",
+            "reaction": "Her gece aynı senaryo! 😂"
+          },
+          {
+            "text": "Her zaman geç kalan",
+            "answer": "name2",
+            "photo": "month-07/foto2.jpeg",
+            "reaction": "5 dakika dedikçe 20 dakika 🕐"
+          },
+          {
+            "text": "Yemek yaparken şarkı söyleyen",
+            "answer": "name1",
+            "photo": "month-07/foto3.jpeg",
+            "reaction": "Mutfak konseri! 🎤"
+          },
+          {
+            "text": "İlk 'seni seviyorum' diyen",
+            "answer": "name1",
+            "photo": "month-07/foto4.jpeg",
+            "reaction": "O an çok güzeldi 💕"
+          },
+          {
+            "text": "Daha çok kıskanç olan",
+            "answer": "name2",
+            "photo": "month-07/foto5.jpeg",
+            "reaction": "Biraz kıskanç olmak da güzel 😤"
+          },
+          {
+            "text": "Kavgada ilk barışmak isteyen",
+            "answer": "name1",
+            "photo": "month-07/foto6.jpeg",
+            "reaction": "Çünkü dayanamıyorum 🥺"
+          },
+          {
+            "text": "Fotoğraf çektirmeyi daha çok seven",
+            "answer": "name2",
+            "photo": "month-07/foto7.jpeg",
+            "reaction": "Bir daha! Bir daha! 📸"
+          },
+          {
+            "text": "Sabahları daha zor kalkan",
+            "answer": "name1",
+            "photo": "month-07/foto8.jpeg",
+            "reaction": "5 dakika daha... 😴"
+          }
         ],
-        "winMessage": "Her günümüz bir öncekinden daha güzel olsun! Seni çok seviyorum 💕"
+        "endMessage": "İşte bizi biz yapan tüm bu şeyler! 💕"
       }
     },
     {
       "id": 8,
-      "title": "Dilek Ağacı",
+      "title": "Seninle Her Yol Güzel",
       "subtitle": "Kasım 2025",
-      "type": "wishtree",
-      "emoji": "🌳",
+      "type": "cityquest",
+      "emoji": "🗺️",
       "color": "#f0f5e6",
-      "wishTree": {
-        "wishes": [
-          "Seninle dünyayı gezmek",
-          "Birlikte yaşlanmak",
-          "Her sabah yanında uyanmak",
-          "Beraber yeni yerler keşfetmek",
-          "Seni her gün daha çok sevmek",
-          "Birlikte bir ev kurmak"
+      "cityQuest": {
+        "cities": [
+          {
+            "name": "Bozcaada",
+            "event": "Aslı'nın Doğum Günü 🎂",
+            "date": "17 Mayıs",
+            "story": "Prensesin doğum günü için bu güzel adaya gittik. Rüzgâr, şarap, deniz ve sen... Mükemmel bir kaçamak!",
+            "photo": "month-08/bozcaada.jpeg",
+            "color": "#4a90d9",
+            "emoji": "🏝️"
+          },
+          {
+            "name": "Ankara",
+            "event": "Gece Macerası 🎤",
+            "date": "",
+            "story": "Ankara'da bir gece... ve biz pavyona gittik! Kim derdi ki böyle bir macera yaşayacağız 😂",
+            "photo": "month-08/ankara.jpeg",
+            "color": "#d94a4a",
+            "emoji": "🎶"
+          },
+          {
+            "name": "Düğün Şehri",
+            "event": "Nikâh Şahitliği 💍",
+            "date": "",
+            "story": "En yakın arkadaşımın düğünü! Nikâh şahidi oldum. Belki bir gün sıra bize gelir...",
+            "photo": "month-08/dugun1.jpeg",
+            "color": "#d9a64a",
+            "emoji": "💒"
+          },
+          {
+            "name": "Diyarbakır / Mardin",
+            "event": "Güneydoğu Keşfi 🧭",
+            "date": "",
+            "story": "Taş sokaklar, güneş, lezzet... Güneydoğu'yu birlikte keşfettik!",
+            "photo": "month-08/mardin.jpeg",
+            "color": "#d9854a",
+            "emoji": "🏛️"
+          },
+          {
+            "name": "Antalya Kaş",
+            "event": "Şövalyenin Doğum Günü 🎉",
+            "date": "14 Ekim",
+            "story": "Benim doğum günüm! Kaş'ın mavilikleri ve senin gülüşün... En güzel hediye sendin.",
+            "photo": "month-08/kas.jpeg",
+            "color": "#4ad9a6",
+            "emoji": "🌊"
+          },
+          {
+            "name": "Balıkesir",
+            "event": "Bir Düğün Daha! 💃",
+            "date": "",
+            "story": "Yine bir düğün! Bu sefer dansımız efsaneydi... ya da öyle hatırlıyoruz 😄",
+            "photo": "month-08/balikesir.jpeg",
+            "color": "#9b4ad9",
+            "emoji": "🎊"
+          }
         ],
-        "message": "Her dileğimde sen varsın..."
+        "endMessage": "Her yolculukta yanımda olduğun için teşekkürler... Seninle her yol güzel! 💕"
       }
     },
     {
@@ -292,18 +411,19 @@
     },
     {
       "id": 12,
-      "title": "Son Bulmaca",
+      "title": "Yeni Evimize Hoş Geldin",
       "subtitle": "Mart 2026",
       "type": "escape",
-      "emoji": "🔐",
+      "emoji": "🏡",
       "color": "#f0e6f5",
       "escape": {
+        "intro": "Yeni evimizin kapısını açmak için 3 bulmacayı çözmen gerekiyor...",
         "puzzles": [
           {
             "type": "date",
             "question": "İlk buluşmamızın tarihi? (GG.AA.YYYY)",
             "answer": "20.04.2025",
-            "hint": "Nisan ayıydı, bir salı günü..."
+            "hint": "Nisan ayıydı..."
           },
           {
             "type": "word",
@@ -314,11 +434,11 @@
           {
             "type": "number",
             "question": "Leo'yu sahiplendiğimiz gün kaçıncı ayımızdı?",
-            "answer": "8",
-            "hint": "Kış başlıyordu..."
+            "answer": "10",
+            "hint": "Şubata yaklaşıyorduk..."
           }
         ],
-        "finalMessage": "Tebrikler! Tüm bulmacaları çözdün! 🎉"
+        "finalMessage": "Kapı açıldı! 🚪✨ Artık bu ev sadece onun değil, bizim evimiz. Yeni bir sayfa, yeni bir başlangıç — ama aynı sevgi, aynı biz. 🏡💕"
       }
     }
   ],

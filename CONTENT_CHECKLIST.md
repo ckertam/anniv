@@ -1,7 +1,7 @@
 # İçerik Checklist - Seninle 365 Gün
 
 Tüm içerikler `src/data/content.json` dosyasına yazılacak.
-Fotoğraflar `src/assets/photos/month-XX/` klasörlerine konulacak.
+Fotoğraflar `public/photos/month-XX/` klasörlerine konulacak.
 
 ---
 
@@ -27,7 +27,7 @@ Hikaye sahne sahne anlatılacak. Her sahne bir ekran.
 - [ ] Sahne 1: Tanışma anı metni + (opsiyonel) fotoğraf
 - [ ] Sahne 2: İlk sohbet / ilk izlenim
 - [ ] Sahne 3: "Ve böylece başladı" kapanış sahnesi
-- [ ] Fotoğraflar: `src/assets/photos/month-01/` klasörüne koy
+- [ ] Fotoğraflar: `public/photos/month-01/` klasörüne koy
 
 > Örnek format (content.json → months[0].story.scenes):
 > ```json
@@ -67,7 +67,7 @@ Kronolojik fotoğraflar + altlarında yazılar.
 - [ ] Fotoğraf 2 + açıklama + tarih
 - [ ] Fotoğraf 3 + açıklama + tarih
 - [ ] (İstersen daha fazla ekle)
-- [ ] Fotoğraflar: `src/assets/photos/month-03/` klasörüne koy
+- [ ] Fotoğraflar: `public/photos/month-03/` klasörüne koy
 
 > Örnek format (content.json → months[2].timeline.photos):
 > ```json
@@ -76,34 +76,49 @@ Kronolojik fotoğraflar + altlarında yazılar.
 
 ---
 
-## Ay 4 — Mektuplar 💌
+## Ay 4 — Sence Ben, Sence Sen 💑
 
-1-3 mektup + (opsiyonel) video mesaj.
+Birbirinizi ne kadar tanıyorsunuz? Her doğru cevap bir fotoğraf açar.
 
-- [ ] Mektup 1: Başlık + içerik + tarih
-- [ ] Mektup 2: Başlık + içerik + tarih
-- [ ] (Opsiyonel) Video mesaj: `src/assets/videos/` klasörüne koy
+- [ ] Soru 1: Soru + kime ait (ben/o/biz) + 4 seçenek + doğru cevap + fotoğraf + tepki
+- [ ] Soru 2: ...
+- [ ] Soru 3: ...
+- [ ] Soru 4: ...
+- [ ] Soru 5: ...
+- [ ] Soru 6: ...
+- [ ] Kapanış mesajı
+- [ ] Fotoğraflar: `public/photos/month-04/` klasörüne koy (her soru için 1 fotoğraf)
 
-> Örnek format (content.json → months[3].letters.items):
+> `about` alanı: "ben" = senin hakkında, "o" = onun hakkında, "biz" = ikiniz hakkında
+>
+> Örnek format (content.json → months[3].couplesQuiz.questions):
 > ```json
-> { "title": "Sana ilk mektubum", "body": "Mektup metni...", "date": "Temmuz 2025" }
+> {
+>   "question": "En sevdiğim yemek?",
+>   "about": "ben",
+>   "options": ["Pizza", "Sushi", "Burger", "Döner"],
+>   "correct": 0,
+>   "photo": "month-04/foto1.jpeg",
+>   "reaction": "Bunu bilmen lazımdı! 😤"
+> }
 > ```
 
 ---
 
-## Ay 5 — Şarkılarımız 🎵
+## Ay 5 — Fotoğraf Kazı Kazan 🎰
 
-Özel şarkılarınız + neden özel olduğu.
+Kazı kazan kartlarının altından fotoğraflar çıkıyor.
 
-- [ ] Şarkı 1: İsim + sanatçı + Spotify track ID + hatıra
-- [ ] Şarkı 2: İsim + sanatçı + Spotify track ID + hatıra
-- [ ] Şarkı 3: İsim + sanatçı + Spotify track ID + hatıra
+- [ ] Kart 1: Fotoğraf + açıklama
+- [ ] Kart 2: Fotoğraf + açıklama
+- [ ] Kart 3: Fotoğraf + açıklama
+- [ ] Kart 4-8: (daha fazla ekle, en az 6-8 kart güzel olur)
+- [ ] Kapanış mesajı
+- [ ] Fotoğraflar: `public/photos/month-05/` klasörüne koy
 
-> Spotify Track ID: `open.spotify.com/track/` sonrasındaki kısım (? öncesi)
->
-> Örnek format (content.json → months[4].music.tracks):
+> Örnek format (content.json → months[4].scratch.cards):
 > ```json
-> { "title": "Şarkı Adı", "artist": "Sanatçı", "spotifyId": "1zPaYQuwGXyQQbxbLzmIFf", "memory": "Bu şarkıyı ilk duyduğumuzda..." }
+> { "photo": "month-05/foto1.jpeg", "caption": "Bu anı hatırlıyor musun? 💕" }
 > ```
 
 ---
@@ -120,29 +135,56 @@ Bir "kendi maceranı seç" tipi hikaye.
 
 ---
 
-## Ay 7 — Hafıza Oyunu 🃏
+## Ay 7 — Bu Kim Dedi? 🗣️
 
-Eşleştirmeli kart oyunu — her çift bir fotoğraf.
+Alışkanlıklar ve itiraflar — kim hangisi?
 
-- [ ] 6 çift fotoğraf (12 kart) + her birinin etiketi
-- [ ] Fotoğraflar: `src/assets/photos/month-07/` klasörüne koy
-- [ ] Kazanma mesajı
+- [ ] İfade 1: Metin + cevap (name1/name2) + fotoğraf + tepki
+- [ ] İfade 2: ...
+- [ ] İfade 3: ...
+- [ ] İfade 4-8: (en az 8 ifade güzel olur)
+- [ ] Kapanış mesajı
+- [ ] Fotoğraflar: `public/photos/month-07/` klasörüne koy
 
-> Örnek format (content.json → months[6].memory.pairs):
+> `answer` alanı: "name1" = senin isminin karşılığı, "name2" = onun isminin karşılığı
+>
+> Örnek format (content.json → months[6].whoSaidIt.statements):
 > ```json
-> { "id": "pair1", "image": "month-07/foto1.jpeg", "label": "İlk buluşma" }
+> {
+>   "text": "Uyurken battaniyeyi çalan",
+>   "answer": "name1",
+>   "photo": "month-07/foto1.jpeg",
+>   "reaction": "Her gece aynı senaryo! 😂"
+> }
 > ```
 
 ---
 
-## Ay 8 — Dilek Ağacı 🌳
+## Ay 8 — Seninle Her Yol Güzel 🗺️ (Pixel Art Şehir Macerası)
 
-Geleceğe dair dilekler — ağaca yaprak olarak asılacak.
+Gittiğiniz şehirler, pixel art retro oyun tarzında.
 
-- [ ] 6-10 dilek cümlesi
+- [ ] Şehir 1 (Bozcaada): Hikaye + fotoğraf + tarih
+- [ ] Şehir 2 (Ankara): Hikaye + fotoğraf
+- [ ] Şehir 3 (Düğün): Hikaye + fotoğraf
+- [ ] Şehir 4 (Diyarbakır/Mardin): Hikaye + fotoğraf
+- [ ] Şehir 5 (Antalya Kaş): Hikaye + fotoğraf + tarih
+- [ ] Şehir 6 (Balıkesir): Hikaye + fotoğraf
 - [ ] Kapanış mesajı
+- [ ] Fotoğraflar: `public/photos/month-08/` klasörüne koy (bozcaada.jpeg, ankara.jpeg vs.)
 
-> Örnek: "Seninle dünyayı gezmek", "Birlikte yaşlanmak" vs.
+> Örnek format (content.json → months[7].cityQuest.cities):
+> ```json
+> {
+>   "name": "Bozcaada",
+>   "event": "Aslı'nın Doğum Günü 🎂",
+>   "date": "17 Mayıs",
+>   "story": "Prensesin doğum günü kutlaması...",
+>   "photo": "month-08/bozcaada.jpeg",
+>   "color": "#4a90d9",
+>   "emoji": "🏝️"
+> }
+> ```
 
 ---
 
@@ -151,7 +193,7 @@ Geleceğe dair dilekler — ağaca yaprak olarak asılacak.
 Sanal bir oda — duvarlarda fotoğraflar, masada objeler.
 
 - [ ] 3-5 fotoğraf (duvara asılacak)
-- [ ] Fotoğraflar: `src/assets/photos/month-10/` klasörüne koy
+- [ ] Fotoğraflar: `public/photos/month-10/` klasörüne koy
 
 ---
 
@@ -162,7 +204,7 @@ Leo'ya özel mini sayfa.
 - [ ] Leo'nun adı + sahiplenme tarihi
 - [ ] Sahiplenme hikayesi (1-2 paragraf)
 - [ ] 3-5 Leo fotoğrafı + açıklamaları
-- [ ] Fotoğraflar: `src/assets/photos/month-09/` klasörüne koy
+- [ ] Fotoğraflar: `public/photos/month-10/` klasörüne koy
 
 ---
 
@@ -175,14 +217,15 @@ Leo'ya özel mini sayfa.
 
 ---
 
-## Ay 12 — Escape Room / Son Bulmaca 🔐
+## Ay 12 — Yeni Evimize Hoş Geldin 🏡
 
-3 bulmaca çözerek finale ulaşılacak.
+Escape Room tarzı: 3 bulmacayı çöz, yeni evin kapısını aç!
 
 - [ ] Bulmaca 1: İlk buluşma tarihi (GG.AA.YYYY formatında)
 - [ ] Bulmaca 2: Özel bir kelime/cümle + ipucu
-- [ ] Bulmaca 3: Sayısal bir cevap + ipucu
-- [ ] Final mesajı
+- [ ] Bulmaca 3: Sayısal bir cevap + ipucu (Leo'nun sahiplenme ayı = 10)
+- [ ] Giriş mesajı (intro)
+- [ ] Final mesajı (yeni ev temasında)
 
 > Örnek format (content.json → months[11].escape.puzzles):
 > ```json
@@ -206,6 +249,6 @@ Tüm ayları tamamladıktan sonra açılan final sahne.
 
 - Fotoğraflar `.jpeg` veya `.png` formatında olmalı
 - Video `.mp4` formatında olmalı
-- Spotify ID'leri linkteki `/track/` sonrasındaki kısım
 - Tüm metinler Türkçe olacak
 - Her şeyi tamamlamana gerek yok — placeholder'lar zaten çalışır
+- `name1` ve `name2` alanları `couple.name1` ve `couple.name2`'ye karşılık gelir

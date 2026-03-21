@@ -1,0 +1,242 @@
+.month05-empty {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.month05 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  width: 100%;
+}
+
+.month05-counter {
+  text-align: center;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+.month05-counter-num {
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--bordo);
+  font-size: 1.15rem;
+}
+
+.month05-counter-total {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+.month05-counter-label {
+  margin-left: 0.15rem;
+}
+
+.month05-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+}
+
+@media (min-width: 720px) {
+  .month05-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+.month05-card {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 6px 22px rgba(44, 34, 38, 0.1),
+    0 0 0 1px rgba(201, 169, 110, 0.2);
+  background: var(--white);
+}
+
+.month05-card-inner {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.month05-photo-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+}
+
+.month05-photo {
+  flex: 1;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 0;
+}
+
+.month05-photo-placeholder {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--bordo-soft), var(--cream) 50%, var(--gold));
+  font-size: 2.25rem;
+}
+
+.month05-caption {
+  margin: 0;
+  padding: 0.55rem 0.65rem 0.65rem;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--text);
+  text-align: center;
+  background: linear-gradient(180deg, rgba(250, 247, 245, 0.92), var(--white));
+  border-top: 1px solid rgba(201, 169, 110, 0.15);
+}
+
+.month05-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+  touch-action: none;
+  border-radius: 18px;
+  z-index: 2;
+}
+
+.month05-canvas:active {
+  cursor: grabbing;
+}
+
+.month05-canvas--fade {
+  animation: month05-cover-fade 0.45s var(--ease-out-expo) forwards;
+  pointer-events: none;
+}
+
+@keyframes month05-cover-fade {
+  to {
+    opacity: 0;
+  }
+}
+
+.month05-finale {
+  position: relative;
+  text-align: center;
+  padding: 1.5rem 0.75rem 0.5rem;
+  animation: month05-finale-in 0.7s var(--ease-out-expo) both;
+}
+
+@keyframes month05-finale-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.month05-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.month05-sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+  box-shadow: 0 0 10px var(--gold);
+  animation: month05-sparkle-float 2.4s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+  opacity: 0;
+}
+
+.month05-sparkle:nth-child(odd) {
+  background: radial-gradient(circle, #fff 0%, var(--gold) 45%, transparent 70%);
+}
+
+@keyframes month05-sparkle-float {
+  0% {
+    opacity: 0;
+    transform: translate(0, 8px) scale(0.4);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx, 0), -42px) scale(1);
+  }
+}
+
+.month05-sparkle:nth-child(7n + 1) {
+  left: 8%;
+  bottom: 10%;
+  --tx: -6px;
+}
+
+.month05-sparkle:nth-child(7n + 2) {
+  left: 22%;
+  bottom: 4%;
+  --tx: 4px;
+}
+
+.month05-sparkle:nth-child(7n + 3) {
+  left: 38%;
+  bottom: 14%;
+  --tx: -2px;
+}
+
+.month05-sparkle:nth-child(7n + 4) {
+  left: 52%;
+  bottom: 6%;
+  --tx: 8px;
+}
+
+.month05-sparkle:nth-child(7n + 5) {
+  left: 66%;
+  bottom: 12%;
+  --tx: -10px;
+}
+
+.month05-sparkle:nth-child(7n + 6) {
+  left: 78%;
+  bottom: 5%;
+  --tx: 3px;
+}
+
+.month05-sparkle:nth-child(7n) {
+  left: 90%;
+  bottom: 15%;
+  --tx: -4px;
+}
+
+.month05-end-msg {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 4vw, 1.55rem);
+  color: var(--text);
+  line-height: 1.45;
+  max-width: 28rem;
+  margin-inline: auto;
+}
