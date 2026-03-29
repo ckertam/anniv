@@ -120,9 +120,9 @@ export default class EndScene extends Phaser.Scene {
     })
 
     const meetY = cy + 100
-    const p1 = this.add.image(cx - 220, meetY, 'player').setScale(3).setDepth(4)
+    const p1 = this.add.image(cx - 220, meetY, 'player_down').setScale(3).setDepth(4)
     const p2 = this.add
-      .image(cx + 220, meetY, 'player')
+      .image(cx + 220, meetY, 'player_down')
       .setScale(3)
       .setFlipX(true)
       .setTint(0xffb6c1)

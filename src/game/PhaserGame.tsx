@@ -3,7 +3,7 @@ import Phaser from 'phaser'
 import BootScene from './scenes/BootScene'
 import MenuScene from './scenes/MenuScene'
 import StoryScene from './scenes/StoryScene'
-import RunnerScene from './scenes/RunnerScene'
+import ExploreScene from './scenes/ExploreScene'
 import EndScene from './scenes/EndScene'
 
 interface PhaserGameProps {
@@ -23,18 +23,11 @@ export default function PhaserGame({ onBack }: PhaserGameProps) {
       width: containerRef.current.clientWidth,
       height: containerRef.current.clientHeight,
       backgroundColor: '#1a0a20',
-      physics: {
-        default: 'arcade',
-        arcade: {
-          gravity: { x: 0, y: 0 },
-          debug: false,
-        },
-      },
       scale: {
         mode: Phaser.Scale.RESIZE,
         autoCenter: Phaser.Scale.CENTER_BOTH,
       },
-      scene: [BootScene, MenuScene, StoryScene, RunnerScene, EndScene],
+      scene: [BootScene, MenuScene, StoryScene, ExploreScene, EndScene],
       input: {
         activePointers: 2,
       },

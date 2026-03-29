@@ -54,7 +54,7 @@ export default class MenuScene extends Phaser.Scene {
       })
       .setOrigin(0.5)
 
-    const player = this.add.image(cx, cy + 20, 'player').setScale(3)
+    const player = this.add.image(cx, cy + 20, 'player_down').setScale(3)
     this.tweens.add({
       targets: player,
       y: cy + 40,

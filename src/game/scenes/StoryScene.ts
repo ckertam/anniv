@@ -10,6 +10,15 @@ function rgbToCss(r: number, g: number, b: number): string {
   return `rgb(${Math.round(r)},${Math.round(g)},${Math.round(b)})`
 }
 
+function hexToNumberDark(hex: string): number {
+  const { r, g, b } = hexToRgb(hex)
+  return Phaser.Display.Color.GetColor(
+    Math.round(r * 0.25),
+    Math.round(g * 0.25),
+    Math.round(b * 0.25),
+  )
+}
+
 export default class StoryScene extends Phaser.Scene {
   levelIndex = 0
   score = 0
@@ -26,11 +35,11 @@ export default class StoryScene extends Phaser.Scene {
   create() {
     const level = levels[this.levelIndex]
     if (!level) {
-      this.scene.start('RunnerScene', { levelIndex: 0, score: this.score })
+      this.scene.start('ExploreScene', { levelIndex: 0, score: this.score })
       return
     }
 
-    const { r, g, b } = hexToRgb(level.skyTop)
+    const { r, g, b } = hexToRgb(level.skyColor)
     this.cameras.main.setBackgroundColor('#1a0a20')
 
     const w = this.scale.width
@@ -38,7 +47,7 @@ export default class StoryScene extends Phaser.Scene {
     const cx = w * 0.5
 
     const headerWash = this.add.graphics()
-    const topTint = hexToNumberDark(level.skyTop)
+    const topTint = hexToNumberDark(level.skyColor)
     headerWash.fillGradientStyle(topTint, topTint, 0x1a0a20, 0x1a0a20, 0.4, 0.4, 1, 1)
     headerWash.fillRect(0, 0, w, h * 0.42)
     headerWash.setScrollFactor(0, 0)
@@ -93,7 +102,7 @@ export default class StoryScene extends Phaser.Scene {
       .setScrollFactor(0, 0)
 
     const continueButton = this.add
-      .text(cx, h - 72, '[ DEVAM → ]', {
+      .text(cx, h - 72, '[ KEŞFET → ]', {
         font: '12px "Press Start 2P", monospace',
         color: '#2ecc71',
       })
@@ -108,7 +117,7 @@ export default class StoryScene extends Phaser.Scene {
       continueButton.setVisible(true)
       continueButton.setInteractive({ useHandCursor: true })
       continueButton.once('pointerdown', () => {
-        this.scene.start('RunnerScene', { levelIndex: this.levelIndex, score: this.score })
+        this.scene.start('ExploreScene', { levelIndex: this.levelIndex, score: this.score })
       })
       this.tweens.add({
         targets: continueButton,
@@ -172,13 +181,4 @@ export default class StoryScene extends Phaser.Scene {
         .setScrollFactor(0, 0)
     }
   }
-}
-
-function hexToNumberDark(hex: string): number {
-  const { r, g, b } = hexToRgb(hex)
-  return Phaser.Display.Color.GetColor(
-    Math.round(r * 0.25),
-    Math.round(g * 0.25),
-    Math.round(b * 0.25),
-  )
 }
