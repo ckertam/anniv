@@ -16,6 +16,8 @@ import Month10Room from './components/months/Month10Room'
 import Month11Garden from './components/months/Month11Garden'
 import Month12Escape from './components/months/Month12Escape'
 import Finale from './components/months/Finale'
+import HiddenGame from './components/hidden-game/HiddenGame'
+import CardGame from './components/card-game/CardGame'
 
 export default function App() {
   const [entered, setEntered] = useState(false)
@@ -42,6 +44,8 @@ export default function App() {
         <Route path="/month/11" element={<Month11Garden />} />
         <Route path="/month/12" element={<Month12Escape />} />
         <Route path="/finale" element={<Finale />} />
+        <Route path="/hidden-game" element={<HiddenGame />} />
+        <Route path="/card-game" element={<CardGame />} />
       </Routes>
       <MusicPlayer active={musicActive} onToggle={() => setMusicActive(prev => !prev)} />
     </HashRouter>

@@ -245,6 +245,41 @@ Tüm ayları tamamladıktan sonra açılan final sahne.
 
 ---
 
+## Gizli Nesne Oyunu 🔍
+
+`/hidden-game` route'unda erişilir. 12 sahne, her birinde 4-5 anı noktası.
+
+İçerik: `src/components/hidden-game/scenes.ts` dosyasındaki `text` alanları.
+
+- [ ] Ay 1 hotspot metinleri (şarap gecesi, şarkı söyleme anısı)
+- [ ] Ay 2 hotspot metinleri (üzüm bağları, gün batımı, şarap anısı)
+- [ ] Ay 3 hotspot metinleri (kampüs yürüyüşü, ODTÜ fotoğraf anısı)
+- [ ] Ay 4 hotspot metinleri (dizi izleme, yemek yapma, ev anısı)
+- [ ] Ay 5 hotspot metinleri (pavyon macerası, Ağva sahil anısı)
+- [ ] Ay 6 hotspot metinleri (yemek anısı, Güneydoğu anısı, fotoğraf anısı)
+- [ ] Ay 7 hotspot metinleri (Kaş gün batımı anısı)
+- [ ] Ay 8 hotspot metinleri (tüm metinler doldurulmuş durumda, kontrol et)
+- [ ] Ay 9 hotspot metinleri (trafik/sürüş anısı, yolculuk anısı)
+- [ ] Ay 10 hotspot metinleri (Sapanca/doğa anısı)
+- [ ] Ay 11 hotspot metinleri (Leo anısı)
+- [ ] Ay 12 hotspot metinleri (yeni ev anısı)
+- [ ] Opsiyonel: hotspot'lara fotoğraf ekle (`photo` alanı)
+
+---
+
+## Kart Macerası 🃏
+
+`/card-game` route'unda erişilir. Anı, soru ve söz kartları.
+
+İçerik: `src/components/card-game/cards.ts` dosyası.
+
+- [ ] Quiz soruları: Doğru seçenekleri ve şıkları yaz (şu an placeholder)
+- [ ] Inside joke / komik söz kartları (şu an placeholder)
+- [ ] Opsiyonel: Anı kartlarına fotoğraf ekle (`photo` alanı)
+- [ ] Opsiyonel: Daha fazla kart ekle
+
+---
+
 ## Notlar
 
 - Fotoğraflar `.jpeg` veya `.png` formatında olmalı
