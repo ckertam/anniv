@@ -2,9 +2,9 @@ import Phaser from 'phaser'
 import levels from '../levels'
 
 const TILE = 16
-const GRAVITY = 1200
-const JUMP_VEL = -520
-const BASE_SPEED = 200
+const GRAVITY = 1000
+const JUMP_VEL = -450
+const BASE_SPEED = 120
 const GROUND_Y_OFFSET = 80
 
 function hexToNumber(hex: string): number {
@@ -153,6 +153,34 @@ export default class RunnerScene extends Phaser.Scene {
         repeat: -1,
         ease: 'Sine.easeInOut',
       })
+    }
+
+    // Big level intro banner (visible at start)
+    const banner = this.add.text(this.scale.width / 2, this.scale.height / 2 - 40, level.emoji, {
+      fontSize: '64px',
+    }).setOrigin(0.5).setScrollFactor(0).setDepth(50).setAlpha(0.9)
+    const bannerTitle = this.add.text(this.scale.width / 2, this.scale.height / 2 + 20, `AY ${level.month}: ${level.title}`, {
+      font: '12px "Press Start 2P", monospace',
+      color: '#fff',
+      align: 'center',
+    }).setOrigin(0.5).setScrollFactor(0).setDepth(50).setAlpha(0.9)
+    const bannerCity = this.add.text(this.scale.width / 2, this.scale.height / 2 + 45, level.city, {
+      font: '9px "Press Start 2P", monospace',
+      color: '#ffd700',
+      align: 'center',
+    }).setOrigin(0.5).setScrollFactor(0).setDepth(50).setAlpha(0.7)
+    this.time.delayedCall(2000, () => {
+      this.tweens.add({ targets: [banner, bannerTitle, bannerCity], alpha: 0, duration: 800 })
+    })
+
+    // Themed decorations along the level
+    const decoEmojis = [level.emoji, level.specialEmoji]
+    for (let d = 0; d < 10; d++) {
+      const dx = TILE * 15 + (d * (level.length - TILE * 30)) / 10
+      const dy = this.groundY - 100 - rand() * 60
+      const emoji = decoEmojis[d % decoEmojis.length]
+      this.add.text(dx, dy, emoji, { fontSize: '24px' })
+        .setOrigin(0.5).setAlpha(0.4 + rand() * 0.3)
     }
 
     this.flag = this.physics.add.sprite(level.length - TILE * 6, this.groundY - 32, 'flag')
