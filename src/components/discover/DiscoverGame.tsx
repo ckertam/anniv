@@ -16,15 +16,52 @@ interface Particle {
   size: number
   delay: string
   duration: string
+  type: 'dot' | 'glow'
+}
+
+const ANIM_CLASSES = ['dg-anim-bob', 'dg-anim-wobble', 'dg-anim-bounce', 'dg-anim-sway', 'dg-anim-breathe']
+
+function getAnimClass(index: number): string {
+  return ANIM_CLASSES[index % ANIM_CLASSES.length]
 }
 
 function makeParticles(): Particle[] {
-  return Array.from({ length: 20 }, (_, i) => ({
+  return Array.from({ length: 25 }, (_, i) => ({
     id: i,
     left: `${Math.random() * 100}%`,
-    size: 3 + Math.random() * 6,
+    size: 3 + Math.random() * 8,
     delay: `${Math.random() * 16}s`,
-    duration: `${12 + Math.random() * 10}s`,
+    duration: `${10 + Math.random() * 12}s`,
+    type: i % 4 === 0 ? 'glow' : 'dot',
+  }))
+}
+
+interface BgDecor {
+  id: number
+  emoji: string
+  left: string
+  top: string
+  size: string
+  delay: string
+}
+
+function makeBgDecor(emojis: string[]): BgDecor[] {
+  const positions = [
+    { left: '8%', top: '15%' },
+    { left: '85%', top: '20%' },
+    { left: '15%', top: '75%' },
+    { left: '80%', top: '80%' },
+    { left: '50%', top: '50%' },
+    { left: '30%', top: '90%' },
+    { left: '70%', top: '10%' },
+  ]
+  return positions.slice(0, Math.min(6, emojis.length + 3)).map((pos, i) => ({
+    id: i,
+    emoji: emojis[i % emojis.length],
+    left: pos.left,
+    top: pos.top,
+    size: `${4 + (i % 3) * 1.5}rem`,
+    delay: `${i * 0.8}s`,
   }))
 }
 
@@ -35,26 +72,26 @@ export default function DiscoverGame() {
   const [showIntro, setShowIntro] = useState(true)
   const [introExiting, setIntroExiting] = useState(false)
   const [finished, setFinished] = useState(false)
+  const [shakingId, setShakingId] = useState<string | null>(null)
 
-  // Modal states
   const [activeCard, setActiveCard] = useState<DiscoverItem | null>(null)
   const [activeQuiz, setActiveQuiz] = useState<{ item: DiscoverItem; quiz: QuizData } | null>(null)
   const [quizSelected, setQuizSelected] = useState<number | null>(null)
 
-  // Confetti
   const [confetti, setConfetti] = useState<ConfettiPiece[]>([])
   const confettiId = useRef(0)
 
   const particles = useRef(makeParticles())
 
   const scene = scenes[sceneIndex]
+  const bgDecor = useRef(makeBgDecor(scene?.items.filter(i => i.type === 'real').map(i => i.emoji) ?? []))
 
   const spawnConfetti = useCallback((cx: number, cy: number) => {
     const emojis = ['🎉', '✨', '💫', '⭐', '❤️', '🌟']
-    const pieces: ConfettiPiece[] = Array.from({ length: 10 }, () => ({
+    const pieces: ConfettiPiece[] = Array.from({ length: 14 }, () => ({
       id: confettiId.current++,
-      x: cx + (Math.random() - 0.5) * 30,
-      y: cy + (Math.random() - 0.5) * 20,
+      x: cx + (Math.random() - 0.5) * 40,
+      y: cy + (Math.random() - 0.5) * 25,
       emoji: emojis[Math.floor(Math.random() * emojis.length)],
     }))
     setConfetti(prev => [...prev, ...pieces])
@@ -72,7 +109,7 @@ export default function DiscoverGame() {
   const handleItemClick = useCallback((item: DiscoverItem) => {
     if (foundIds.has(item.id)) return
 
-    if (item.type === 'real' && item.quiz && !foundIds.has(item.id)) {
+    if (item.type === 'real' && item.quiz) {
       setActiveQuiz({ item, quiz: item.quiz })
       setQuizSelected(null)
       return
@@ -86,6 +123,9 @@ export default function DiscoverGame() {
 
     if (item.type === 'real') {
       spawnConfetti(50, 40)
+    } else {
+      setShakingId(item.id)
+      setTimeout(() => setShakingId(null), 500)
     }
 
     setActiveCard(item)
@@ -134,7 +174,12 @@ export default function DiscoverGame() {
       setActiveQuiz(null)
       setQuizSelected(null)
       setShowIntro(true)
+      setShakingId(null)
       particles.current = makeParticles()
+      const nextScene = scenes[next]
+      if (nextScene) {
+        bgDecor.current = makeBgDecor(nextScene.items.filter(i => i.type === 'real').map(i => i.emoji))
+      }
     }
   }, [sceneIndex])
 
@@ -159,14 +204,29 @@ export default function DiscoverGame() {
 
   return (
     <div className="dg">
-      {/* Background */}
       <div className="dg-bg" style={{ background: scene.bgGradient }} />
+
+      {/* Big blurred background emojis for atmosphere */}
+      {!showIntro && bgDecor.current.map(d => (
+        <div
+          key={`bg-${d.id}`}
+          className="dg-bg-decor"
+          style={{
+            left: d.left,
+            top: d.top,
+            fontSize: d.size,
+            animationDelay: `${d.delay}, ${parseFloat(d.delay) + 1}s`,
+          }}
+        >
+          {d.emoji}
+        </div>
+      ))}
 
       {/* Ambient particles */}
       {particles.current.map(p => (
         <div
           key={p.id}
-          className="dg-particle"
+          className={`dg-particle dg-particle--${p.type}`}
           style={{
             left: p.left,
             width: p.size,
@@ -177,18 +237,39 @@ export default function DiscoverGame() {
         />
       ))}
 
-      {/* Emoji items */}
-      {!showIntro && scene.items.map(item => (
-        <div
-          key={item.id}
-          className={`dg-item dg-item--${item.type} ${foundIds.has(item.id) ? 'dg-item--found' : ''}`}
-          style={{ left: item.x, top: item.y }}
-          onClick={() => handleItemClick(item)}
-        >
-          <div className="dg-item-glow" />
-          <div className="dg-item-emoji">{item.emoji}</div>
-        </div>
-      ))}
+      {/* Emoji items with staggered entrance */}
+      {!showIntro && scene.items.map((item, idx) => {
+        const isFound = foundIds.has(item.id)
+        const isShaking = shakingId === item.id
+        return (
+          <div
+            key={item.id}
+            className={`dg-item dg-item--${item.type} ${isFound ? 'dg-item--found' : ''} ${isShaking ? 'dg-item--shake' : ''}`}
+            style={{
+              left: item.x,
+              top: item.y,
+              animationDelay: `${idx * 0.08}s`,
+            }}
+            onClick={() => handleItemClick(item)}
+          >
+            <div className="dg-item-glow" />
+            <div className="dg-item-glass" />
+            <div className={`dg-item-emoji ${!isFound ? getAnimClass(idx) : ''}`}>
+              {item.emoji}
+            </div>
+
+            {/* Lock icon for quiz items */}
+            {item.type === 'real' && item.quiz && !isFound && (
+              <div className="dg-item-lock">🔒</div>
+            )}
+
+            {/* Checkmark for found real items */}
+            {isFound && item.type === 'real' && (
+              <div className="dg-item-check">✅</div>
+            )}
+          </div>
+        )
+      })}
 
       {/* HUD */}
       {!showIntro && (
@@ -211,10 +292,8 @@ export default function DiscoverGame() {
         </div>
       )}
 
-      {/* Back */}
       {!showIntro && <button className="dg-back" onClick={() => navigate('/')}>←</button>}
 
-      {/* Next button */}
       {allFound && !activeCard && !activeQuiz && (
         <button className="dg-next" onClick={handleNext}>
           {sceneIndex < scenes.length - 1 ? 'Sonraki Ay →' : 'Bitir 🎉'}
@@ -240,7 +319,7 @@ export default function DiscoverGame() {
         </div>
       )}
 
-      {/* Card modal (real or decoy) */}
+      {/* Card modal */}
       {activeCard && (
         <div className="dg-modal" onClick={handleCloseCard}>
           <div className="dg-modal-bg" />
@@ -248,17 +327,15 @@ export default function DiscoverGame() {
             className={`dg-card ${activeCard.type === 'real' ? 'dg-card--real' : 'dg-card--decoy'}`}
             onClick={e => e.stopPropagation()}
           >
-            {/* Photo */}
-            {(activeCard.type === 'real' && activeCard.photo) && (
+            {activeCard.type === 'real' && activeCard.photo && (
               <img src={activeCard.photo} alt="" className="dg-card-photo" />
             )}
-            {(activeCard.type === 'decoy' && activeCard.decoyPhoto) && (
+            {activeCard.type === 'decoy' && activeCard.decoyPhoto && (
               <img src={activeCard.decoyPhoto} alt="" className="dg-card-photo" />
             )}
 
             <div className="dg-card-body">
               <div className="dg-card-emoji-row">{activeCard.emoji}</div>
-
               {activeCard.type === 'real' ? (
                 <>
                   <div className="dg-card-title">{activeCard.title}</div>
@@ -270,10 +347,7 @@ export default function DiscoverGame() {
                   <div className="dg-card-text">{activeCard.decoyText}</div>
                 </>
               )}
-
-              <button className="dg-card-close" onClick={handleCloseCard}>
-                Kapat
-              </button>
+              <button className="dg-card-close" onClick={handleCloseCard}>Kapat</button>
             </div>
           </div>
         </div>
@@ -313,11 +387,7 @@ export default function DiscoverGame() {
 
       {/* Confetti */}
       {confetti.map(c => (
-        <div
-          key={c.id}
-          className="dg-confetti"
-          style={{ left: `${c.x}%`, top: `${c.y}%` }}
-        >
+        <div key={c.id} className="dg-confetti" style={{ left: `${c.x}%`, top: `${c.y}%` }}>
           {c.emoji}
         </div>
       ))}
