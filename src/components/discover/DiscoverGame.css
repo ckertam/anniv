@@ -15,6 +15,63 @@
   inset: 0;
 }
 
+/* Radial light orbs for depth */
+.dg-bg::before,
+.dg-bg::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.dg-bg::before {
+  width: 60vw;
+  height: 60vw;
+  top: -10%;
+  right: -15%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+  animation: dgOrbDrift 25s ease-in-out infinite;
+}
+
+.dg-bg::after {
+  width: 50vw;
+  height: 50vw;
+  bottom: -5%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.04) 0%, transparent 70%);
+  animation: dgOrbDrift 30s ease-in-out infinite reverse;
+}
+
+@keyframes dgOrbDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(5%, 8%) scale(1.1); }
+  66% { transform: translate(-3%, -5%) scale(0.95); }
+}
+
+/* Noise/grain texture overlay */
+.dg-texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Extra soft spotlight in center */
+.dg-spotlight {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 80vh;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
 /* ── Background decorative emojis (big, blurred, atmospheric) ── */
 .dg-bg-decor {
   position: absolute;
@@ -159,11 +216,16 @@
 /* ── Emoji items on screen ── */
 .dg-item {
   position: absolute;
+  width: 56px;
+  height: 56px;
   transform: translate(-50%, -50%) scale(0);
   cursor: pointer;
   z-index: 10;
   -webkit-tap-highlight-color: transparent;
   animation: dgItemEnter 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes dgItemEnter {
@@ -177,10 +239,11 @@
 /* Frosted glass circle behind emoji */
 .dg-item-glass {
   position: absolute;
-  inset: -8px;
+  inset: -6px;
   border-radius: 50%;
   pointer-events: none;
   border: 1px solid rgba(255, 255, 255, 0.12);
+  aspect-ratio: 1;
 }
 
 .dg-item--real .dg-item-glass {
@@ -203,9 +266,10 @@
 /* Outer glow ring */
 .dg-item-glow {
   position: absolute;
-  inset: -18px;
+  inset: -16px;
   border-radius: 50%;
   pointer-events: none;
+  aspect-ratio: 1;
 }
 
 .dg-item--real .dg-item-glow {
@@ -231,7 +295,13 @@
 /* Emoji character */
 .dg-item-emoji {
   position: relative;
-  font-size: 2.2rem;
+  font-size: 2rem;
+  line-height: 1;
+  width: 1em;
+  height: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
 }
 

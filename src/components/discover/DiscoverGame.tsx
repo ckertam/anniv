@@ -205,6 +205,8 @@ export default function DiscoverGame() {
   return (
     <div className="dg">
       <div className="dg-bg" style={{ background: scene.bgGradient }} />
+      <div className="dg-texture" />
+      <div className="dg-spotlight" />
 
       {/* Big blurred background emojis for atmosphere */}
       {!showIntro && bgDecor.current.map(d => (
